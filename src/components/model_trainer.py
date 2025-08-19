@@ -3,10 +3,10 @@ import sys
 from dataclasses import dataclass
 
 from catboost import CatBoostRegressor
-from sklearn.ensemble import(
+from sklearn.ensemble import (
     AdaBoostRegressor,
     GradientBoostingRegressor,
-    RandomForestRegressor
+    RandomForestRegressor,
 )
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
@@ -16,6 +16,7 @@ from xgboost import XGBRegressor
 
 from src.exception import CustomException
 from src.logger import logging
+
 from src.utils import save_object,evaluate_models
 
 @dataclass
@@ -95,6 +96,16 @@ class ModelTrainer:
                 list(model_report.values()).index(best_model_score)
             ]
             best_model = models[best_model_name]
+
+            # Refit the best model with the best parameters if available
+            best_model_params = params.get(best_model_name, {})
+            if hasattr(best_model, "set_params") and best_model_params:
+                # Find the best parameters from model_report if your evaluate_models returns them
+                # Otherwise, you may need to modify evaluate_models to return best params
+                if hasattr(model_report, "best_params_") and model_report.best_params_:
+                    best_params = model_report.best_params_
+                    best_model.set_params(**best_params)
+            best_model.fit(X_train, y_train)
 
             if best_model_score<0.6:
                 raise CustomException("No best model found")
