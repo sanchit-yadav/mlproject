@@ -3,7 +3,10 @@
 ### Project Overview
 This project aims to build a predictive model that estimates a student's academic performance based on key personal and behavioral features—specifically gender, age, and study hours. By analyzing these inputs, the model can forecast expected scores, helping educators and learners identify patterns that influence academic success.
 
-![Description of screenshot](assets/Screenshot 2025-08-21 163953.png)
+
+## Application Screenshot
+
+![Description of screenshot](assets\screenshot.png)
 
 
 ## Installation Guide
