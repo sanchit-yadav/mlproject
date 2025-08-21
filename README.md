@@ -6,7 +6,7 @@ This project aims to build a predictive model that estimates a student's academi
 
 ## Application Screenshot
 
-![Description of screenshot](assets\screenshot.png)
+![Description of screenshot](assets/screenshot.png)
 
 
 ## Installation Guide
