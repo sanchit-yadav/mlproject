@@ -3,6 +3,8 @@
 ### Project Overview
 This project aims to build a predictive model that estimates a student's academic performance based on key personal and behavioral features—specifically gender, age, and study hours. By analyzing these inputs, the model can forecast expected scores, helping educators and learners identify patterns that influence academic success.
 
+![Description of screenshot](assets/Screenshot 2025-08-21 163953.png)
+
 
 ## Installation Guide
 #### Follow these steps to set up and run the application:
@@ -27,5 +29,5 @@ pip install -r requirements.txt
 
 #### 4.Run the Application: To start the app, execute the following command in your terminal:
 ```bash
-streamlit run main.py
+python app.py
 ```
